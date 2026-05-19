@@ -6,8 +6,7 @@
     },
     "blink.cmp": {
       "rev": "8a2060dff4e68ac17f1c92aed526c76fb0c1ac2f",
-      "src": "https://github.com/saghen/blink.cmp",
-      "version": "'v.1.6.0'"
+      "src": "https://github.com/saghen/blink.cmp"
     },
     "fzf-lua": {
       "rev": "abacb0693d7a37de9e85e6fcb2d22d848cb75cef",

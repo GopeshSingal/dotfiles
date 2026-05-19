@@ -177,10 +177,7 @@ vim.pack.add({
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/mason-org/mason-lspconfig.nvim",
 	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
-	{
-		src = "https://github.com/saghen/blink.cmp",
-		version = "v.1.6.0"
-	},
+    "https://github.com/saghen/blink.cmp",
     "https://github.com/L3MON4D3/LuaSnip",
 })
 
@@ -234,7 +231,8 @@ vim.lsp.config("rust_analyzer", {
     },
 })
 
-require("blink.cmp").setup({
+local cmp = require('blink.cmp')
+cmp.setup({
     keymap = {
         preset = "none",
         ["<C-Space>"] = { "show", "hide" },
