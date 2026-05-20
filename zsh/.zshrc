@@ -73,3 +73,10 @@ fi
 if [[ -f "$ZSH_CONFIG_DIR/.zshrc" ]]; then
     (autoload -U zrecompile && zrecompile -q "$ZSH_CONFIG_DIR/.zshrc" &!)
 fi
+
+# --------------------------------------------------------------------
+# Load Local Aliases
+# --------------------------------------------------------------------
+if [ -f "$ZSH_CONFIG_DIR/.zsh_local" ]; then
+    source "$ZSH_CONFIG_DIR/.zsh_local"
+fi
