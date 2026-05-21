@@ -243,7 +243,17 @@ cmp.setup({
         ["<S-Tab>"] = { "snippet_backward", "fallback" },
     },
     appearance = { nerd_font_variant = "mono" },
-    completion = { menu = { auto_show = true } },
+    completion = {
+        list = {
+            selection = {
+                preselect = false,
+                auto_insert = false
+            },
+        },
+        menu = {
+            auto_show = true,
+        }
+    },
     sources = { default = { "lsp", "path", "buffer", "snippets" } },
     snippets = {
         expand = function(snippet)
