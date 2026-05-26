@@ -231,6 +231,18 @@ vim.lsp.config("rust_analyzer", {
     },
 })
 
+vim.lsp.config('hls', {
+    cmd = { "haskell-language-server-wrapper", "--lsp" },
+    filetypes = { 'haskell', 'lhaskell' },
+    root_markers = { 'cabal.project', 'stack.yaml', 'package.yaml', '.git' },
+    settings = {
+        haskell = {
+            formattingProvider = "ormolu",
+        },
+    },
+})
+vim.lsp.enable('hls')
+
 local cmp = require('blink.cmp')
 cmp.setup({
     keymap = {
