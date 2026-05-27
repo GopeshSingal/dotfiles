@@ -63,7 +63,7 @@ binds {
 	Mod+Q { close-window; }
 
 	Mod+Return repeat=false { spawn "kitty"; }
-	Mod+O      repeat=false { spawn "rofi" "-show" "drun"; }
+	Mod+O      repeat=false { spawn "~/.config/niri/scripts/rofi-toggle.sh"; }
 	Mod+B 	   repeat=false { spawn "zen-browser"; }
 	Mod+E      repeat=false { spawn "kitty" "-e" "yazi"; }
 
@@ -134,6 +134,12 @@ window-rule {
 
 	draw-border-with-background false
 	opacity 0.85
+}
+
+layer-rule {
+    match namespace="rofi"
+
+    opacity 0.90
 }
 
 blur {

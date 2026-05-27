@@ -62,6 +62,7 @@ prompt {
 entry {
     placeholder:                 "Search...";
     placeholder-color:           #444b71;
+    text-color:                  #ffffff;
     background-color:            transparent;
 }
 
