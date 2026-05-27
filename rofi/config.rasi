@@ -1,0 +1,106 @@
+configuration {
+    modi:                        "drun,run,window";
+    show-icons:                  true;
+    display-drun:                "";
+    display-run:                 "";
+    display-window:              "";
+    drun-display-format:         "{name}";
+    terminal:                    "kitty";
+    font:                        "JetBrainsMono Nerd Font 11";
+}
+
+* {
+    bg:      #161821;
+    fg:      #c6c8d1;
+    accent:  #84a0c6;
+    urgent:  #e27878;
+    active:  #b4be82;
+    border:  #2a3158;
+    select:  #1e2132;
+
+    background-color:            @bg;
+    text-color:                  @fg;
+    margin:                      0;
+    padding:                     0;
+    spacing:                     0;
+}
+
+window {
+    /* Sidebar Position */
+    location:                    west;
+    anchor:                      west;
+    height:                      100%;
+    width:                       20%;
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    /* Visuals */
+    border:                      0px 2px 0px 0px;
+    border-color:                @accent;
+    children:                    [ mainbox ];
+}
+
+mainbox {
+    padding:                     40px 20px;
+    children:                    [ inputbar, listview ];
+}
+
+inputbar {
+    padding:                     10px;
+    margin:                      0px 0px 20px 0px;
+    background-color:            @select;
+    border-radius:               6px;
+    children:                    [ prompt, entry ];
+}
+
+prompt {
+    padding:                     0px 10px 0px 5px;
+    text-color:                  @accent;
+    background-color:            transparent;
+}
+
+entry {
+    placeholder:                 "Search...";
+    placeholder-color:           #444b71;
+    background-color:            transparent;
+}
+
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       12;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     5px;
+    background-color:            transparent;
+    text-color:                  @fg;
+}
+
+element {
+    padding:                     10px;
+    border-radius:               6px;
+    background-color:            transparent;
+}
+
+element selected {
+    background-color:            @select;
+    text-color:                  @accent;
+}
+
+element-icon {
+    size:                        24px;
+    padding:                     0px 10px 0px 0px;
+    background-color:            transparent;
+}
+
+element-text {
+    vertical-align:              0.5;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
