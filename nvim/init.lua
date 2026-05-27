@@ -3,8 +3,6 @@
 -----------------
 vim.o.termguicolors = true
 vim.o.winborder = "rounded"
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NonText", { bg = "none" })
 
 vim.o.number = true
 vim.o.relativenumber = true
@@ -91,7 +89,17 @@ vim.pack.add({
     "https://www.github.com/ibhagwan/fzf-lua",
     "https://www.github.com/echasnovski/mini.nvim",
     "https://www.github.com/folke/which-key.nvim",
+    "https://www.github.com/cocopon/iceberg.vim"
 })
+
+-- Colorscheme
+vim.cmd.colorscheme("iceberg")
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NonText", { bg = "none" })
+vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
+vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "none", fg = "#81a1c1" })
+vim.api.nvim_set_hl(0, "CursorLine", { bg = "none" })
 
 -- GitSigns
 require("gitsigns").setup({
@@ -106,6 +114,10 @@ require("gitsigns").setup({
 	signcolumn = true,
 	current_line_blame = false,
 })
+
+vim.api.nvim_set_hl(0, "GitSignsAdd", { bg = "none", fg = "#a3be8c" })
+vim.api.nvim_set_hl(0, "GitSignsChange", { bg = "none", fg = "#ebcb8b" })
+vim.api.nvim_set_hl(0, "GitSignsDelete", { bg = "none", fg = "#bf616a" })
 
 vim.keymap.set("n", "]h", function()
 	require("gitsigns").nav_hunk('next')
@@ -179,6 +191,7 @@ vim.pack.add({
 	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
     "https://github.com/saghen/blink.cmp",
     "https://github.com/L3MON4D3/LuaSnip",
+    "https://github.com/nvim-treesitter/nvim-treesitter",
 })
 
 require("mason").setup()
@@ -275,6 +288,21 @@ cmp.setup({
     fuzzy = {
         implementation = "prefer_rust",
     },
+})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        -- Ensure the module exists before trying to run setup
+        local has_ts, ts = pcall(require, "nvim-treesitter.configs")
+        if has_ts then
+            ts.setup({
+                ensure_installed = { "haskell" },
+                highlight = {
+                    enable = true,
+                },
+            })
+        end
+    end,
 })
 
 vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
