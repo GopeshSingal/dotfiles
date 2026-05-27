@@ -71,6 +71,17 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+-- Automatically enable word wrapping in Markdown files
+vim.api.nvim_create_autocmd("FileType", {
+    group = cfggroup,
+    pattern = "markdown",
+    callback = function()
+        vim.opt_local.wrap = true
+        vim.opt_local.linebreak = true
+        vim.opt_local.spell = true
+    end,
+})
+
 -- vim.api.nvim_create_autocmd("CursorHold", {
 --     group = cfggroup,
 --     callback = function()
