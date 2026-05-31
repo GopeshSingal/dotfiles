@@ -112,6 +112,9 @@ binds {
     Mod+Shift+K { focus-workspace-up; }
 
     Mod+Tab { toggle-overview; }
+
+    Ctrl+Print { screenshot-screen write-to-disk=false; }
+    Alt+Print  { screenshot-window write-to-disk=false; }
 }
 
 window-rule {
