@@ -1,6 +1,7 @@
 require("config.options")
 require("config.keymaps")
 require("config.autocmds")
+require("config.titles")
 
 vim.pack.add({
     "lewis6991/gitsigns.nvim",

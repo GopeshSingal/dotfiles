@@ -139,6 +139,58 @@ window-rule {
 	opacity 0.85
 }
 
+// Change the focus ring color depending on Neovim mode
+// Color theme is based off of Iceberg.vim
+//  bg      = "#161821",
+//  fg      = "#C6C8D1",
+//  comment = "#6B7089",
+//  blue    = "#84A0C6",
+//  cyan    = "#89B8C2",
+//  green   = "#B4BE82",
+//  yellow  = "#E2A478",
+//  red     = "#E27878",
+//  purple  = "#A093C7",
+
+window-rule {
+    match app-id="kitty" title="nvim-n"
+    focus-ring {
+        active-color "#6b7089"          // gray
+        inactive-color "#0d4040"
+    }
+}
+
+window-rule {
+    match app-id="kitty" title="nvim-i"
+    focus-ring {
+        active-color "#84a0c6"          // blue
+        inactive-color "#0d4040"
+    }
+}
+
+window-rule {
+    match app-id="kitty" title="nvim-v"
+    focus-ring {
+        active-color "#b4be82"          // green
+        inactive-color "#0d4040"
+    }
+}
+
+window-rule {
+    match app-id="kitty" title="nvim-V"
+    focus-ring {
+        active-color "#b4be82"          // green
+        inactive-color "#0d4040"
+    }
+}
+
+window-rule {
+    match app-id="kitty" title="nvim-c"
+    focus-ring {
+        active-color "#a093c7"          // purple
+        inactive-color "#0d4040"
+    }
+}
+
 layer-rule {
     match namespace="rofi"
 
