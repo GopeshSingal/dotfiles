@@ -47,7 +47,22 @@ lsp.config('hls', {
     },
 })
 
-lsp.enable({'lua_ls', 'rust_analyzer', 'hls'})
+lsp.config("gopls", {
+    cmd = { "gopls" },
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    root_markers = { "go.work", "go.mod", ".git" },
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+            gofumpt = true,
+        },
+    },
+})
+
+lsp.enable({'gopls', 'lua_ls', 'rust_analyzer', 'hls'})
 
 -- Keymaps --
 vim.keymap.set("n", "<Leader>rn", lsp.buf.rename,            { desc = "Rename" })
