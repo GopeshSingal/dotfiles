@@ -57,14 +57,19 @@ elif command -v ls &> /dev/null; then
 fi
 
 # --------------------------------------------------------------------
+# Editing & Fuzzy Finder
+# --------------------------------------------------------------------
+set -o vi
+
+if command -v fzf &> /dev/null; then
+    source <(fzf --zsh)
+fi
+
+# --------------------------------------------------------------------
 # External Tools
 # --------------------------------------------------------------------
 if command -v starship &> /dev/null; then
     eval "$(starship init zsh)"
-fi
-
-if command -v fastfetch &> /dev/null; then
-    fastfetch
 fi
 
 # --------------------------------------------------------------------
