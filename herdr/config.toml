@@ -1,0 +1,28 @@
+onboarding = false
+
+[theme]
+name = "terminal"
+auto_switch = false
+
+[keys]
+switch_workspace = "prefix+shift+1..9"
+focus_agent = "prefix+alt+1..9"
+next_agent = "prefix+]"
+previous_agent = "prefix+["
+# tmux-style last pane; prefix+tab is already cycle_pane_next
+last_pane = "prefix+semicolon"
+# tmux-style splits: % side by side, " stacked
+split_vertical = "prefix+%"
+split_horizontal = 'prefix+"'
+
+[ui]
+agent_panel_sort = "priority"
+status_indicators = "symbols"
+show_agent_labels_on_pane_borders = true
+prompt_new_tab_name = false
+
+[ui.sidebar.agents.rows_by_agent]
+claude = [["state_icon", "workspace", "tab"], ["terminal_title_stripped"]]
+
+[ui.sound]
+path = "sounds/hero.mp3"
