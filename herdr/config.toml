@@ -16,6 +16,26 @@ last_pane = "prefix+semicolon"
 # tmux-style splits: % side by side, " stacked
 split_vertical = "prefix+%"
 split_horizontal = 'prefix+"'
+# Built-in closes skip confirmation (confirm_close only covers workspaces), so
+# move them off x/X and let the tmux-style y/n popups below take those keys
+close_pane = "prefix+alt+x"
+close_tab = "prefix+alt+shift+x"
+
+[[keys.command]]
+key = "prefix+x"
+type = "popup"
+description = "close pane (confirm)"
+width = 30
+height = 3
+command = '''printf 'close pane? (y/n) '; stty -icanon -echo; k=$(dd bs=1 count=1 2>/dev/null); stty icanon echo; case "$k" in y|Y) "$HERDR_BIN_PATH" pane close "$HERDR_ACTIVE_PANE_ID" >/dev/null ;; esac'''
+
+[[keys.command]]
+key = "prefix+shift+x"
+type = "popup"
+description = "close tab (confirm)"
+width = 30
+height = 3
+command = '''printf 'close tab? (y/n) '; stty -icanon -echo; k=$(dd bs=1 count=1 2>/dev/null); stty icanon echo; case "$k" in y|Y) "$HERDR_BIN_PATH" tab close "$HERDR_ACTIVE_TAB_ID" >/dev/null ;; esac'''
 
 [ui]
 agent_panel_sort = "priority"
