@@ -7,8 +7,10 @@ auto_switch = false
 [keys]
 switch_workspace = "prefix+shift+1..9"
 focus_agent = "prefix+alt+1..9"
-next_agent = "prefix+]"
-previous_agent = "prefix+["
+next_agent = "prefix+}"
+previous_agent = "prefix+{"
+# tmux-style copy mode
+copy_mode = "prefix+["
 # tmux-style last pane; prefix+tab is already cycle_pane_next
 last_pane = "prefix+semicolon"
 # tmux-style splits: % side by side, " stacked
