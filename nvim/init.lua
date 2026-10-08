@@ -3,19 +3,21 @@ require("config.keymaps")
 require("config.autocmds")
 require("config.titles")
 
+local gh = function(x) return "https://github.com/" .. x end
+
 vim.pack.add({
-    "lewis6991/gitsigns.nvim",
-    "ibhagwan/fzf-lua",
-    "echasnovski/mini.nvim",
-    "folke/which-key.nvim",
-    "cocopon/iceberg.vim",
-    "neovim/nvim-lspconfig",
-    "mason-org/mason.nvim",
-    "mason-org/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    "saghen/blink.cmp",
-    "L3MON4D3/LuaSnip",
-    "nvim-treesitter/nvim-treesitter",
+    gh("lewis6991/gitsigns.nvim"),
+    gh("ibhagwan/fzf-lua"),
+    gh("echasnovski/mini.nvim"),
+    gh("folke/which-key.nvim"),
+    gh("cocopon/iceberg.vim"),
+    gh("neovim/nvim-lspconfig"),
+    gh("mason-org/mason.nvim"),
+    gh("mason-org/mason-lspconfig.nvim"),
+    gh("WhoIsSethDaniel/mason-tool-installer.nvim"),
+    gh("saghen/blink.cmp"),
+    gh("L3MON4D3/LuaSnip"),
+    gh("nvim-treesitter/nvim-treesitter"),
 })
 
 local plugins_path = vim.fn.stdpath("config") .. "/lua/plugins"
