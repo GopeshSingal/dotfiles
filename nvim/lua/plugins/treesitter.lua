@@ -1,13 +1,12 @@
-vim.api.nvim_create_autocmd("VimEnter", {
-    callback = function()
-        local has_ts, ts = pcall(require, "nvim-treesitter.configs")
-        if has_ts then
-            ts.setup({
-                ensure_installed = { "go", "gomod", "haskell" },
-                highlight = {
-                    enable = true,
-                },
-            })
-        end
+local ts = require("nvim-treesitter")
+
+if vim.fn.executable("tree-sitter") == 1 then
+    ts.install({ "go", "gomod", "haskell" })
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+    desc     = "Start treesitter highlighting when a parser is available",
+    callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
     end,
 })
