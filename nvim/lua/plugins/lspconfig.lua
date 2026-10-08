@@ -62,7 +62,21 @@ lsp.config("gopls", {
     },
 })
 
-lsp.enable({'gopls', 'lua_ls', 'rust_analyzer', 'hls'})
+-- mdx-language-server always needs a TypeScript SDK, so only attach inside
+-- projects that have typescript in node_modules
+lsp.config("mdx_analyzer", {
+    root_dir = function(bufnr, on_dir)
+        local root = vim.fs.root(bufnr, "package.json")
+        if root and require("lspconfig.util").get_typescript_server_path(root) ~= "" then
+            on_dir(root)
+        end
+    end,
+    init_options = {
+        typescript = { enabled = true },
+    },
+})
+
+lsp.enable({'gopls', 'lua_ls', 'rust_analyzer', 'hls', 'mdx_analyzer'})
 
 -- Keymaps --
 vim.keymap.set("n", "<Leader>rn", lsp.buf.rename,            { desc = "Rename" })

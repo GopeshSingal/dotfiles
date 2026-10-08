@@ -34,6 +34,9 @@ vim.o.undofile = true
 
 vim.opt.path:append('**')
 
+-- Filetypes --
+vim.filetype.add({ extension = { mdx = "mdx" } })
+
 -- Map Leaders --
 vim.g.mapleader   = " "
 vim.g.localleader = ","

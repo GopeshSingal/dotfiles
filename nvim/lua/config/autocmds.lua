@@ -17,10 +17,18 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Enable word wrapping in Markdown files
 vim.api.nvim_create_autocmd("FileType", {
     group    = cfg_group,
-    pattern  = "markdown",
+    pattern  = { "markdown", "mdx" },
     callback = function()
         vim.opt_local.wrap      = true
         vim.opt_local.linebreak = true
         vim.opt_local.spell     = true
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    group    = cfg_group,
+    pattern  = "mdx",
+    callback = function()
+        vim.bo.commentstring = "{/* %s */}"
     end,
 })
