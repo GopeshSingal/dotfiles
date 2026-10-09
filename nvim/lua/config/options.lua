@@ -39,4 +39,4 @@ vim.filetype.add({ extension = { mdx = "mdx" } })
 
 -- Map Leaders --
 vim.g.mapleader   = " "
-vim.g.localleader = ","
+vim.g.maplocalleader = ","
