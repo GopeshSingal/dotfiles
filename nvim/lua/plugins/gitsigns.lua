@@ -13,11 +13,21 @@ gs.setup({
     numhl = true,
 })
 
-vim.api.nvim_set_hl(0, "GitSignsAdd",          { bg = "none", fg = "#a3be8c" })
-vim.api.nvim_set_hl(0, "GitSignsChange",       { bg = "none", fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "GitSignsDelete",       { bg = "none", fg = "#e27878" })
-vim.api.nvim_set_hl(0, "GitSignsUntracked",    { bg = "none", fg = "#88c0d0" })
-vim.api.nvim_set_hl(0, "GitSignsChangedelete", { bg = "none", fg = "#d08770" })
+-- Colorschemes run `hi clear`, so reapply these whenever one loads
+local function set_highlights()
+    vim.api.nvim_set_hl(0, "GitSignsAdd",          { bg = "none", fg = "#a3be8c" })
+    vim.api.nvim_set_hl(0, "GitSignsChange",       { bg = "none", fg = "#ebcb8b" })
+    vim.api.nvim_set_hl(0, "GitSignsDelete",       { bg = "none", fg = "#e27878" })
+    vim.api.nvim_set_hl(0, "GitSignsUntracked",    { bg = "none", fg = "#88c0d0" })
+    vim.api.nvim_set_hl(0, "GitSignsChangedelete", { bg = "none", fg = "#d08770" })
+end
+
+set_highlights()
+vim.api.nvim_create_autocmd("ColorScheme", {
+    group    = vim.api.nvim_create_augroup("UserGitsignsHighlights", { clear = true }),
+    desc     = "Reapply custom gitsigns highlights",
+    callback = set_highlights,
+})
 
 vim.keymap.set("n", "]h",         function() gs.nav_hunk('next') end, { desc = "Next git hunk" })
 vim.keymap.set("n", "[h",         function() gs.nav_hunk('prev') end, { desc = "Previous git hunk" })
