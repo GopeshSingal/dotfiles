@@ -76,11 +76,11 @@ lsp.config("mdx_analyzer", {
     },
 })
 
-lsp.enable({'gopls', 'lua_ls', 'rust_analyzer', 'hls', 'mdx_analyzer'})
+lsp.enable({'gopls', 'lua_ls', 'rust_analyzer', 'hls', 'mdx_analyzer', 'zk'})
 
 -- Keymaps --
 vim.keymap.set("n", "<Leader>rn", lsp.buf.rename,            { desc = "Rename" })
-vim.keymap.set("n", "<Leader>ca", lsp.buf.code_action,       { desc = "Code action" })
+vim.keymap.set({ "n", "x" }, "<Leader>ca", lsp.buf.code_action, { desc = "Code action" })
 vim.keymap.set("n", "<Leader>k",  lsp.buf.hover,             { desc = "Hover" })
 vim.keymap.set("n", "<Leader>gd", lsp.buf.definition,        { desc = "Goto definition" })
 vim.keymap.set("n", "<Leader>gr", lsp.buf.references,        { desc = "Goto references" })
