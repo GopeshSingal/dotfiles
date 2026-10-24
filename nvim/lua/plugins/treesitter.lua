@@ -1,7 +1,7 @@
 local ts = require("nvim-treesitter")
 
 if vim.fn.executable("tree-sitter") == 1 then
-    ts.install({ "go", "gomod", "haskell", "html", "tsx" })
+    ts.install({ "go", "gomod", "haskell", "html", "tsx", "zig" })
 end
 
 -- MDX has no parser of its own, so parse it as markdown

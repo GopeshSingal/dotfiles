@@ -76,7 +76,7 @@ lsp.config("mdx_analyzer", {
     },
 })
 
-lsp.enable({'gopls', 'lua_ls', 'rust_analyzer', 'hls', 'mdx_analyzer', 'zk'})
+lsp.enable({'gopls', 'lua_ls', 'rust_analyzer', 'hls', 'mdx_analyzer', 'zk', 'zls'})
 
 -- Keymaps --
 vim.keymap.set("n", "<Leader>rn", lsp.buf.rename,            { desc = "Rename" })

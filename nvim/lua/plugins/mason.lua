@@ -7,5 +7,6 @@ require("mason-tool-installer").setup({
         "mdx_analyzer",
         "rust_analyzer",
         "stylua",
+        "zls",
     }
 })
