@@ -55,3 +55,46 @@ vim.keymap.set("x", "<leader>zn", function()
         end
     end)
 end, { desc = "Create linked zk note in notes/" })
+
+
+-- Render the wikilink under the cursor as a clickable inline-code label.
+vim.keymap.set("n", "<leader>zc", function()
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    local line = vim.api.nvim_get_current_line()
+    local offset = 1
+    while true do
+        local first, last, contents = line:find("%[%[([^%[%]]+)%]%]", offset)
+        if not first then
+            break
+        end
+        if cursor[2] + 1 >= first and cursor[2] + 1 <= last then
+            if first > 1 and line:sub(first - 1, first - 1) == "!" then
+                vim.notify("Place the cursor on a link rather than an embed", vim.log.levels.INFO)
+                return
+            end
+            local target, label = contents:match("^(.-)|(.*)$")
+            target = target or contents
+            label = label or target:match("([^/]+)$") or target
+            local path, fragment = target:match("^(.-)(#.*)$")
+            path = path or target
+            fragment = fragment or ""
+            if path ~= "" and not path:match("%.md$") then
+                path = path .. ".md"
+            end
+            local url = (path .. fragment):gsub("[^%w%-%._~/#]", function(char)
+                return string.format("%%%02X", char:byte())
+            end)
+            local longest = 0
+            for ticks in label:gmatch("`+") do
+                longest = math.max(longest, #ticks)
+            end
+            local fence = string.rep("`", longest + 1)
+            local padding = label:find("`", 1, true) and " " or ""
+            local replacement = "[" .. fence .. padding .. label .. padding .. fence .. "](" .. url .. ")"
+            vim.api.nvim_buf_set_text(0, cursor[1] - 1, first - 1, cursor[1] - 1, last, { replacement })
+            return
+        end
+        offset = last + 1
+    end
+    vim.notify("Place the cursor on a [[wikilink]]", vim.log.levels.INFO)
+end, { desc = "Give wikilink a code-styled label" })
