@@ -85,3 +85,14 @@ fi
 if [ -f "$ZSH_CONFIG_DIR/.zsh_local" ]; then
     source "$ZSH_CONFIG_DIR/.zsh_local"
 fi
+
+# --------------------------------------------------------------------
+# `zk` Helpers
+# --------------------------------------------------------------------
+alias nt="zk today"                 # edit the daily note
+alias nf="zk edit --interactive"    # find a note and edit
+
+## create a new note
+nn() {
+    zk new "$ZK_NOTEBOOK_DIR/notes" --title "$*"
+}
