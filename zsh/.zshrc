@@ -81,13 +81,6 @@ if [[ -f "$ZSH_CONFIG_DIR/.zshrc" ]]; then
 fi
 
 # --------------------------------------------------------------------
-# Load Local Aliases
-# --------------------------------------------------------------------
-if [ -f "$ZSH_CONFIG_DIR/.zsh_local" ]; then
-    source "$ZSH_CONFIG_DIR/.zsh_local"
-fi
-
-# --------------------------------------------------------------------
 # `zk` Helpers
 # --------------------------------------------------------------------
 alias nt="zk today"                 # edit the daily note
@@ -97,3 +90,10 @@ alias nf="zk edit --interactive"    # find a note and edit
 nn() {
     zk new "$ZK_NOTEBOOK_DIR/notes" --title "$*"
 }
+
+# --------------------------------------------------------------------
+# Load Local Overrides
+# --------------------------------------------------------------------
+if [ -f "$ZSH_CONFIG_DIR/.zsh_local" ]; then
+    source "$ZSH_CONFIG_DIR/.zsh_local"
+fi
