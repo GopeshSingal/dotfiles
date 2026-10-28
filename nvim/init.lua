@@ -2,6 +2,7 @@ require("config.options")
 require("config.keymaps")
 require("config.autocmds")
 require("config.titles")
+require("config.netrw")
 
 local gh = function(x) return "https://github.com/" .. x end
 
