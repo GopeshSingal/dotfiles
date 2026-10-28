@@ -22,11 +22,7 @@ cmp.setup({
         }
     },
     sources = { default = { "lsp", "path", "buffer", "snippets" } },
-    snippets = {
-        expand = function(snippet)
-            require("luasnip").lsp_expand(snippet)
-        end,
-    },
+    snippets = { preset = "luasnip" },
     fuzzy = {
         implementation = "prefer_rust",
     },
