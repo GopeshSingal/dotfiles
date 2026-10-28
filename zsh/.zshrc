@@ -60,6 +60,7 @@ fi
 # Editing & Fuzzy Finder
 # --------------------------------------------------------------------
 set -o vi
+KEYTIMEOUT=1    # 10ms Esc delay instead of the default 400ms
 
 if command -v fzf &> /dev/null; then
     source <(fzf --zsh)
