@@ -15,11 +15,11 @@ gs.setup({
 
 -- Colorschemes run `hi clear`, so reapply these whenever one loads
 local function set_highlights()
-    vim.api.nvim_set_hl(0, "GitSignsAdd",          { bg = "none", fg = "#a3be8c" })
-    vim.api.nvim_set_hl(0, "GitSignsChange",       { bg = "none", fg = "#ebcb8b" })
+    vim.api.nvim_set_hl(0, "GitSignsAdd",          { bg = "none", fg = "#b4be82" })
+    vim.api.nvim_set_hl(0, "GitSignsChange",       { bg = "none", fg = "#e2a478" })
     vim.api.nvim_set_hl(0, "GitSignsDelete",       { bg = "none", fg = "#e27878" })
-    vim.api.nvim_set_hl(0, "GitSignsUntracked",    { bg = "none", fg = "#88c0d0" })
-    vim.api.nvim_set_hl(0, "GitSignsChangedelete", { bg = "none", fg = "#d08770" })
+    vim.api.nvim_set_hl(0, "GitSignsUntracked",    { bg = "none", fg = "#89b8c2" })
+    vim.api.nvim_set_hl(0, "GitSignsChangedelete", { bg = "none", fg = "#a093c7" })
 end
 
 set_highlights()
