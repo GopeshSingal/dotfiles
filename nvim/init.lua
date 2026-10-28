@@ -15,7 +15,8 @@ vim.pack.add({
     gh("mason-org/mason.nvim"),
     gh("mason-org/mason-lspconfig.nvim"),
     gh("WhoIsSethDaniel/mason-tool-installer.nvim"),
-    gh("saghen/blink.cmp"),
+    -- Prebuilt fuzzy-matcher binaries only exist for release tags
+    { src = gh("saghen/blink.cmp"), version = vim.version.range("1.*") },
     gh("L3MON4D3/LuaSnip"),
     gh("nvim-treesitter/nvim-treesitter"),
 })
