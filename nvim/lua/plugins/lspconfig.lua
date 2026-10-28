@@ -20,9 +20,6 @@ lsp.config("lua_ls", {
 })
 
 lsp.config("rust_analyzer", {
-    cmd = { "rust-analyzer" },
-    filetypes = { "rust" },
-    root_markers = { "Cargo.toml", "rust-project.json", ".git" },
     settings = {
         ["rust-analyzer"] = {
             cargo = {
@@ -37,9 +34,6 @@ lsp.config("rust_analyzer", {
 })
 
 lsp.config('hls', {
-    cmd = { "haskell-language-server-wrapper", "--lsp" },
-    filetypes = { 'haskell', 'lhaskell' },
-    root_markers = { 'cabal.project', 'stack.yaml', 'package.yaml', '.git' },
     settings = {
         haskell = {
             formattingProvider = "ormolu",
@@ -48,9 +42,6 @@ lsp.config('hls', {
 })
 
 lsp.config("gopls", {
-    cmd = { "gopls" },
-    filetypes = { "go", "gomod", "gowork", "gotmpl" },
-    root_markers = { "go.work", "go.mod", ".git" },
     settings = {
         gopls = {
             analyses = {
