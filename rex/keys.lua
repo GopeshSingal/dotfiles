@@ -62,3 +62,7 @@ rex.bind("ctrl+b>shift+4", "session.rename")
 -- search & copy
 rex.bind("ctrl+b>/", "client.find.open")
 rex.bind("ctrl+b>[", "copy_mode") -- defined in actions.lua
+rex.bind("ctrl+b>tab", "extract") -- defined in actions.lua
+
+-- popups
+rex.bind("ctrl+b>t", "popup") -- defined in actions.lua
