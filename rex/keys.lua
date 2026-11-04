@@ -9,16 +9,22 @@ rex.bind("ctrl+b>l", "pane.focus", { direction = "right" })
 rex.bind("ctrl+b>z", "pane.zoom")
 rex.bind("ctrl+b>;", "pane.focus_previous")
 
--- pane resizing
-rex.mode("repeat", { exclusive = true })
-rex.bind("ctrl+b>ctrl+r", "client.mode.enter", { name = "repeat" }) -- ctrl+b ctrl+r enters repeat mode
-rex.bind("repeat/enter", "client.mode.exit") -- enter to leave repeat mode
-rex.bind("repeat/escape", "client.mode.exit") -- escape to leave repeat mode
+-- pane resizing (ctrl+b ctrl+r enters resize mode; escape, enter, or q leaves it)
+rex.mode("resize", { exclusive = true })
+rex.bind("ctrl+b>ctrl+r", "client.mode.enter", { name = "resize" })
+rex.bind("resize/enter", "client.mode.exit")
+rex.bind("resize/q", "client.mode.exit")
 
-rex.bind("repeat/shift+h", "pane.resize", { amount = 5, direction = "left" })
-rex.bind("repeat/shift+j", "pane.resize", { amount = 5, direction = "down" })
-rex.bind("repeat/shift+k", "pane.resize", { amount = 5, direction = "up" })
-rex.bind("repeat/shift+l", "pane.resize", { amount = 5, direction = "right" })
+rex.bind("resize/shift+h", "pane.resize", { amount = 5, direction = "left" })
+rex.bind("resize/shift+j", "pane.resize", { amount = 5, direction = "down" })
+rex.bind("resize/shift+k", "pane.resize", { amount = 5, direction = "up" })
+rex.bind("resize/shift+l", "pane.resize", { amount = 5, direction = "right" })
+rex.bind("resize/=", "pane.balance")
+
+rex.bind("resize/h", "pane.focus", { direction = "left" })
+rex.bind("resize/j", "pane.focus", { direction = "down" })
+rex.bind("resize/k", "pane.focus", { direction = "up" })
+rex.bind("resize/l", "pane.focus", { direction = "right" })
 
 -- pane creation & deletion
 rex.bind("ctrl+b>shift+5", "pane.split", { direction = "right" })
