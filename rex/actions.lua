@@ -14,4 +14,3 @@ rex.action{
     if err ~= nil then error(err, 0) end
   end,
 }
-rex.bind("ctrl+b>[", "copy_mode")

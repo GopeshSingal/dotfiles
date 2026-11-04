@@ -45,5 +45,6 @@ rex.bind("ctrl+b>alt+shift+x", "client.tab.close")
 -- session navigation
 rex.bind("ctrl+b>s", "session.switch")
 
--- search
+-- search & copy
 rex.bind("ctrl+b>/", "client.find.open")
+rex.bind("ctrl+b>[", "copy_mode") -- defined in actions.lua
