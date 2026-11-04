@@ -9,6 +9,14 @@ rex.bind("ctrl+b>l", "pane.focus", { direction = "right" })
 rex.bind("ctrl+b>z", "pane.zoom")
 rex.bind("ctrl+b>;", "pane.focus_previous")
 
+-- pane ordering
+rex.bind("ctrl+b>alt+h", "pane.move", { direction = "left" })
+rex.bind("ctrl+b>alt+j", "pane.move", { direction = "down" })
+rex.bind("ctrl+b>alt+k", "pane.move", { direction = "up" })
+rex.bind("ctrl+b>alt+l", "pane.move", { direction = "right" })
+
+rex.bind("ctrl+b>shift+1", "pane.move_to_new_tab")
+
 -- pane resizing (ctrl+b ctrl+r enters resize mode; escape, enter, or q leaves it)
 rex.mode("resize", { exclusive = true })
 rex.bind("ctrl+b>ctrl+r", "client.mode.enter", { name = "resize" })
@@ -41,9 +49,15 @@ end
 -- tab creation and deletion
 rex.bind("ctrl+b>c", "client.tab.new")
 rex.bind("ctrl+b>alt+shift+x", "client.tab.close")
+rex.bind("ctrl+b>,", "client.tab.rename")
 
 -- session navigation
 rex.bind("ctrl+b>s", "session.switch")
+rex.bind("ctrl+b>shift+9", "session.previous")
+rex.bind("ctrl+b>shift+0", "session.next")
+
+-- session creation & deletion
+rex.bind("ctrl+b>shift+4", "session.rename")
 
 -- search & copy
 rex.bind("ctrl+b>/", "client.find.open")
