@@ -59,6 +59,9 @@ rex.bind("ctrl+b>shift+0", "session.next")
 -- session creation & deletion
 rex.bind("ctrl+b>shift+4", "session.rename")
 
+-- toggle sidebar
+rex.bind("ctrl+b>b", "client.sidebar.toggle")
+
 -- search & copy
 rex.bind("ctrl+b>/", "client.find.open")
 rex.bind("ctrl+b>[", "copy_mode") -- defined in actions.lua
