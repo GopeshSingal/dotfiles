@@ -57,6 +57,11 @@ rex.bind("ctrl+b>shift+9", "session.previous")
 rex.bind("ctrl+b>shift+0", "session.next")
 
 -- session creation & deletion
+rex.bind("ctrl+b>shift+c", "session.new")
+rex.mode("kill-session", { exclusive = true })
+rex.bind("ctrl+b>shift+x", "client.mode.enter", { name = "kill-session" })
+rex.bind("kill-session/y", "session.close")
+rex.bind("kill-session/n", "client.mode.exit")
 rex.bind("ctrl+b>shift+4", "session.rename")
 
 -- toggle sidebar
