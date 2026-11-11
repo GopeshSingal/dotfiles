@@ -96,7 +96,7 @@ rex.action{
     float_over(ctx.block_id, [[
       f=$(mktemp -t rexcopy)
       rex capture -b "$1" --unwrap --trim > "$f"
-      nvim -R -c 'set clipboard=unnamedplus nonumber nowrap' -c 'nnoremap q <cmd>q!<cr>' -c 'xnoremap <cr> y<cmd>q!<cr>' -c 'normal! G' "$f"
+      nvim -M -c 'set clipboard=unnamedplus nonumber nowrap' -c 'nnoremap q <cmd>q!<cr>' -c 'xnoremap <cr> y<cmd>q!<cr>' -c 'normal! G' "$f"
       rm -f "$f"
       rex focus "$1"
     ]])
