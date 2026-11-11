@@ -21,6 +21,14 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         vim.opt_local.wrap      = true
         vim.opt_local.linebreak = true
+        -- prevent insertion of real line breaks while typing (caused by repo settings)
+        vim.opt_local.formatoptions:remove("t")
+        -- break only at whitespace
+        vim.opt_local.breakat   = " \t"
+        vim.opt_local.breakindent    = true
+        -- put the showbreak marker at the left edge
+        vim.opt_local.breakindentopt = "list:-1,sbr"
+        vim.opt_local.showbreak      = "↪ "
         vim.opt_local.spell     = true
     end,
 })
